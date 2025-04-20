@@ -74,14 +74,14 @@ version: '3'
 services:
   kafka:
     image: wurstmeister/kafka:latest
-    environment:
-      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
-      KAFKA_LISTENERS: INSIDE://0.0.0.0:9092
-      KAFKA_LISTENER_NAMES: INSIDE
-      KAFKA_LISTENER_PORT: 9092
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENER_INTERNAL: INSIDE
+    - **environment:
+     - ** KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9092
+     - ** KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
+     - ** KAFKA_LISTENERS: INSIDE://0.0.0.0:9092
+      - **KAFKA_LISTENER_NAMES: INSIDE
+      - **KAFKA_LISTENER_PORT: 9092
+      - **KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+     - ** KAFKA_LISTENER_INTERNAL: INSIDE
     ports:
       - "9092:9092"
     depends_on:
