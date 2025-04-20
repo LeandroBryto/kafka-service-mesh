@@ -1,5 +1,8 @@
 package leandro.dev.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import leandro.dev.base_domains.dto.Order;
 import leandro.dev.base_domains.dto.OrderEvent;
@@ -19,7 +22,15 @@ public class OrderController {
     public OrderController(OrderProducer orderProducer) {
         this.orderProducer = orderProducer;
     }
-
+    @Operation(
+            summary = "Cria um novo pedido e envia para o Kafka",
+            description = "Este endpoint cria um novo pedido, gera um evento e o envia para o Kafka com status pendente."
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Pedido criado com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Requisição inválida"),
+            @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
+    })
     @PostMapping("/orders")
     public ResponseEntity<String> placeOrder(@Valid @RequestBody Order order) {
         // Gerar ID único para o pedido
