@@ -1,77 +1,52 @@
 # Kafka Service Mesh
 
-Este repositório contém uma série de microserviços para gerenciar diferentes funcionalidades de um sistema baseado em Kafka, incluindo serviços de email, gerenciamento de pedidos e controle de estoque. O sistema é construído usando o Spring Boot e Kafka, com foco em escalabilidade e integração eficiente.
+Este projeto é uma arquitetura de microserviços baseada no **Apache Kafka**, oferecendo uma solução robusta para comunicação assíncrona entre os serviços. Ele inclui múltiplos microserviços, como **Email Service**, **Order Service**, **Stock Service** e **Base Domains**, todos desenvolvidos com **Spring Boot** e integrados através de Kafka, garantindo alta escalabilidade e eficiência.
 
 ## Estrutura do Projeto
 
-O projeto é composto por vários módulos Maven, cada um responsável por uma funcionalidade específica:
+O repositório é composto por diversos módulos, cada um com sua responsabilidade no ecossistema de microserviços:
 
-- **base-domains**: Contém as entidades de domínio comuns usadas pelos outros módulos.
-- **email-service**: Responsável pelo envio de emails usando o Spring Boot Mail e integração com Kafka para mensagens assíncronas.
-- **order-service**: Gerencia pedidos e integra com outros microserviços para processar e atualizar o status dos pedidos.
-- **stock-service**: Controla o estoque, incluindo a atualização da quantidade de itens e o gerenciamento de inventário.
-- **microservices-root**: O módulo raiz, que integra todos os serviços e configura o ambiente do projeto.
+- **base-domains**: Contém as entidades e modelos de domínio comuns, compartilhados entre os outros módulos.
+- **email-service**: Responsável pelo envio de e-mails e integração com Kafka para processamento assíncrono de mensagens.
+- **order-service**: Gerencia o ciclo de vida dos pedidos, incluindo criação, atualização e rastreamento de status.
+- **stock-service**: Controla o inventário de produtos e realiza operações de gerenciamento de estoque.
+
+A raiz do projeto é o **microservices-root**, que orquestra todos os outros módulos e configura a infraestrutura comum.
 
 ## Tecnologias Usadas
 
 - **Java 21**: A versão do JDK utilizada.
-- **Spring Boot 3.4.4**: Framework para desenvolvimento rápido de microserviços.
+- **Spring Boot 3.4.4**: Framework para desenvolvimento de microserviços.
 - **Apache Kafka**: Sistema de mensagens assíncronas utilizado para comunicação entre os microserviços.
-- **Maven**: Gerenciador de dependências e build do projeto.
-- **Lombok**: Biblioteca para reduzir o boilerplate de código (como getters, setters, etc.).
-- **JUnit**: Framework para testes unitários.
+- **Maven**: Gerenciador de dependências e ferramenta de build.
+- **Docker**: Containerização dos serviços para fácil execução em diferentes ambientes.
+- **Docker Compose**: Orquestração de múltiplos containers Docker para configurar, iniciar e interagir com os microserviços.
+- **Swagger**: Utilizado para documentação da API e interação com os endpoints (implementado no **Order Service**).
+- **Spring Boot Actuator**: Fornece funcionalidades de monitoramento e gerenciamento de microserviços, como métricas e controle de saúde.
 
-## Como Rodar o Projeto
+## Funcionalidades
+
+- **Comunicação Assíncrona com Kafka**: Todos os microserviços se comunicam de forma eficiente através do Apache Kafka.
+- **Envio de Emails**: O `email-service` é responsável pelo envio de e-mails e integração com outros microserviços para processamento de notificações.
+- **Gestão de Pedidos**: O `order-service` gerencia o ciclo de vida dos pedidos, incluindo a criação, atualização e rastreamento de status.
+- **Gerenciamento de Estoque**: O `stock-service` monitora e gerencia o estoque de produtos, realizando operações de controle de inventário.
+
+## Configuração do Ambiente
 
 ### Pré-requisitos
 
-Certifique-se de que você tem as seguintes ferramentas instaladas:
-
 - **Java 21** ou superior.
-- **Apache Maven**.
-- **Apache Kafka** (ou uma instância do Kafka rodando).
+- **Docker** e **Docker Compose** instalados.
+- **Apache Kafka** (ou um cluster Kafka em execução).
 
-### Passos para Execução
+### Como Rodar os Microserviços com Docker Compose
 
-1. Clone o repositório:
+A configuração de todo o ambiente de microserviços é facilitada pelo uso do **Docker Compose**. O arquivo `docker-compose.yml` permite iniciar todos os containers necessários para a execução do projeto.
 
-    ```bash
-    git clone https://github.com/seu-usuario/kafka-service-mesh.git
-    cd kafka-service-mesh
-    ```
+#### Passos para Execução:
 
-2. Compilar o projeto e rodar os microserviços:
+1. **Clone o repositório**:
 
-    ```bash
-    mvn clean install
-    mvn spring-boot:run
-    ```
-
-3. O microserviço `email-service` será iniciado e poderá ser acessado conforme configurado no `application.properties`.
-
-4. Certifique-se de que o Kafka está rodando na máquina local ou em um servidor remoto, e que as configurações de conectividade estão corretas.
-
-## Endpoints
-
-### Email Service
-
-- **POST /send-email**: Envia um email para um ou mais destinatários. 
-
-   Exemplo de payload:
-
-    ```json
-    {
-      "to": ["destinatario1@exemplo.com", "destinatario2@exemplo.com"],
-      "subject": "Assunto do Email",
-      "body": "Corpo do email"
-    }
-    ```
-
-### Outros serviços (Order e Stock) possuem funcionalidades semelhantes de gerenciamento de pedidos e controle de estoque.
-
-## Testes
-
-O projeto inclui testes automatizados que garantem a funcionalidade dos microserviços. Para rodar os testes, use o seguinte comando Maven:
-
-```bash
-mvn test
+   ```bash
+   git clone https://github.com/seu-usuario/kafka-service-mesh.git
+   cd kafka-service-mesh
