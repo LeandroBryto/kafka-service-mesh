@@ -1,4 +1,4 @@
-# Kafka Service Mesh
+# Projeto Microserviços com Spring Boot, Kafka e Docker Compose
 
 Este projeto é uma arquitetura de microserviços baseada no **Apache Kafka**, oferecendo uma solução robusta para comunicação assíncrona entre os serviços. Ele inclui múltiplos microserviços, como **Email Service**, **Order Service**, **Stock Service** e **Base Domains**, todos desenvolvidos com **Spring Boot** e integrados através de Kafka, garantindo alta escalabilidade e eficiência.
 
@@ -13,7 +13,7 @@ O repositório é composto por diversos módulos, cada um com sua responsabilida
 
 A raiz do projeto é o **microservices-root**, que orquestra todos os outros módulos e configura a infraestrutura comum.
 
-## Tecnologias Usadas
+## 🛠 Tecnologias Usadas
 
 - **Java 21**: A versão do JDK utilizada.
 - **Spring Boot 3.4.4**: Framework para desenvolvimento de microserviços.
@@ -67,7 +67,7 @@ Stock Service: Exposto na porta 8083
 
 O Kafka estará configurado para rodar nas portas padrão 9092 (Kafka) e 2181 (ZooKeeper).
 
-#### Docker Compose
+#### 🐳 Docker Compose
 Aqui está um exemplo básico de arquivo docker-compose.yml para orquestrar os containers necessários para o funcionamento do Kafka, ZooKeeper e microserviços:
 
 version: '3'
