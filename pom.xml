@@ -9,7 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    
+
     <modules>
         <module>base-domains</module>
         <module>email-service</module>
