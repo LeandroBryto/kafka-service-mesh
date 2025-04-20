@@ -155,21 +155,19 @@ O Spring Boot Actuator está configurado para fornecer informações de monitora
 
 Exemplos de endpoints Actuator disponíveis:
 
-Health: http://localhost:8081/actuator/health
-
 Serviço | Health Check | Métricas
-Email Service | http://localhost:8081/actuator/health | http://localhost:8081/actuator/metrics
-Order Service | http://localhost:8082/actuator/health | http://localhost:8082/actuator/metrics
-Stock Service | http://localhost:8083/actuator/health | http://localhost:8083/actuator/metrics
+- ** Email Service | http://localhost:8081/actuator/health | http://localhost:8081/actuator/metrics
+- ** Order Service | http://localhost:8082/actuator/health | http://localhost:8082/actuator/metrics
+- ** Stock Service | http://localhost:8083/actuator/health | http://localhost:8083/actuator/metrics
 
-Metrics: http://localhost:8081/actuator/metrics
+
 
 Esses endpoints são cruciais para monitorar a integridade e a performance dos microserviços em tempo real.
 
 ####  Autor
 
 Leandro Barreto de Brito
-Desenvolvedor Backend | Engenheiro de Software
-📧 leandrobarreto.barreto@gmail.com
-📍 Brasília - DF
+- ** Desenvolvedor Backend | Engenheiro de Software
+- ** 📧 leandrobarreto.barreto@gmail.com
+- ** 📍 Brasília - DF
 
