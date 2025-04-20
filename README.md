@@ -19,11 +19,11 @@ A raiz do projeto é o **microservices-root**, que orquestra todos os outros mó
 - **Spring Boot 3.4.4**: Framework para desenvolvimento de microserviços.
 - **Apache Kafka**: Sistema de mensagens assíncronas para comunicação entre serviços.
 - **Maven**: Gerenciador de dependências e build.
-- **Docker**: Containerização dos serviços.
 - **Docker Compose**: Orquestração de containers.
 - **Swagger**: Documentação da API (Order Service).
 - **Spring Boot Actuator**: Monitoramento e métricas.
-
+- **JUnit 5: Framework de testes utilizado para escrever e executar os testes unitários.
+- 
 ## 🚀 Funcionalidades Principais
 
 - **Comunicação Assíncrona com Kafka**: Comunicação eficiente entre serviços.
@@ -78,6 +78,14 @@ Email Service: http://localhost:8081
 Order Service: http://localhost:8082
 
 Stock Service: http://localhost:8083
+
+#### 🧪 Testes Realizados:
+
+OrderProducerTest: Testei o produtor de mensagens Kafka (OrderProducer) para garantir que os eventos de pedidos fossem enviados corretamente para o Kafka, verificando o tópico e as mensagens enviadas.
+
+OrderConsumerTest: Testei o consumidor de mensagens Kafka (OrderConsumer) para garantir que os eventos de pedidos fossem consumidos corretamente e que o log fosse gerado com as informações do evento.
+
+EmailServiceTest: Testei o serviço de envio de e-mails (EmailService) para garantir que as notificações de pedidos fossem enviadas corretamente para o destinatário, verificando o conteúdo e os destinatários do e-mail.
 
 #### 📖 Swagger para Documentação da API
 O Swagger foi implementado para documentar e testar interativamente a API do Order Service. Após iniciar os containers, você pode acessar o Swagger UI para explorar os endpoints da API:
