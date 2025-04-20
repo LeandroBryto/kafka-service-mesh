@@ -143,14 +143,14 @@ Order Service: http://localhost:8082
 
 Stock Service: http://localhost:8083
 
-####  Swagger para Documentação da API
+#### 📖 Swagger para Documentação da API
 O Swagger foi implementado para documentar e testar interativamente a API do Order Service. Após iniciar os containers, você pode acessar o Swagger UI para explorar os endpoints da API:
 
 Order Service Swagger: http://localhost:8082/swagger-ui.html
 
 A documentação gerada pelo Swagger fornece uma interface amigável para testar os endpoints e visualizar as respostas das requisições.
 
-#### Spring Boot Actuator
+#### 📊 Spring Boot Actuator
 O Spring Boot Actuator está configurado para fornecer informações de monitoramento e gerenciamento dos microserviços, incluindo endpoints de health check, metrics, auditoria e muito mais. Esses endpoints são acessíveis para garantir que o sistema esteja funcionando corretamente em ambiente de produção.
 
 Exemplos de endpoints Actuator disponíveis:
