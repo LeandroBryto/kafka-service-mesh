@@ -67,7 +67,7 @@ Stock Service: Exposto na porta 8083
 
 O Kafka estará configurado para rodar nas portas padrão 9092 (Kafka) e 2181 (ZooKeeper).
 
-####Docker Compose
+#### Docker Compose
 Aqui está um exemplo básico de arquivo docker-compose.yml para orquestrar os containers necessários para o funcionamento do Kafka, ZooKeeper e microserviços:
 
 version: '3'
